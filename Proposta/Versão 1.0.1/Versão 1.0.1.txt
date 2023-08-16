@@ -1,0 +1,5 @@
+Versão 1.0.1
+
+Alterações:
+- Removido painel, condições comerciais.
+- Acrescentado painel, observações.

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 4.0.2  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="500" pageHeight="500" orientation="Landscape" columnWidth="500" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="mm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="mm"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="pedidos" class="java.lang.String"/>
+	<field name="lojaVirtual" class="java.lang.String"/>
+	<field name="destinatario" class="java.lang.String"/>
+	<field name="cep" class="java.lang.String"/>
+	<field name="remetente" class="java.lang.String"/>
+	<field name="volume" class="java.lang.Integer"/>
+	<field name="volumeTotal" class="java.lang.Integer"/>
+	<field name="entidadeOrigem.numeroDocumentoFiscal" class="java.lang.String"/>
+	<field name="entidadeOrigem.nfe.numero" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresaSaida.endereco" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresaSaida.nomeRazaoSocial" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresaSaida.numero" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresaSaida.bairro" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresaSaida.cep" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresaSaida.municipioIBGE.nome" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresaSaida.telefone" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresaSaida.uf" class="java.lang.String"/>
+	<field name="entidadeOrigem.parceiro.nome" class="java.lang.String"/>
+	<field name="entidadeOrigem.enderecoLocalEntrega.endereco" class="java.lang.String"/>
+	<field name="entidadeOrigem.enderecoLocalEntrega.uf" class="java.lang.String"/>
+	<field name="entidadeOrigem.enderecoLocalEntrega.bairro" class="java.lang.String"/>
+	<field name="entidadeOrigem.enderecoLocalEntrega.cep" class="java.lang.String"/>
+	<field name="entidadeOrigem.enderecoLocalEntrega.numero" class="java.lang.String"/>
+	<field name="entidadeOrigem.enderecoLocalEntrega.municipioIBGE.nome" class="java.lang.String"/>
+	<field name="entidadeOrigem.enderecoLocalEntrega.id" class="java.lang.Integer"/>
+	<field name="entidadeOrigem.enderecoLocalEntrega.cnpj" class="java.lang.String"/>
+	<field name="entidadeOrigem.enderecoLocalEntrega.cpf" class="java.lang.String"/>
+	<field name="entidadeOrigem.enderecoLocalEntrega.complemento" class="java.lang.String"/>
+	<field name="entidadeOrigem.enderecoLocalEntrega.telefone" class="java.lang.String"/>
+	<field name="entidadeOrigem.parceiro.endereco" class="java.lang.String"/>
+	<field name="entidadeOrigem.parceiro.numero" class="java.lang.String"/>
+	<field name="entidadeOrigem.parceiro.complemento" class="java.lang.String"/>
+	<field name="entidadeOrigem.parceiro.municipioIBGE.nome" class="java.lang.String"/>
+	<field name="entidadeOrigem.parceiro.uf" class="java.lang.String"/>
+	<field name="entidadeOrigem.transportadora.nome" class="java.lang.String"/>
+	<field name="entidadeOrigem.transportadora.id" class="java.lang.Integer"/>
+	<variable name="total_pages" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{PAGE_NUMBER}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="480" splitType="Stretch">
+			<!-- Cabeçalho 91px -->
+			<staticText>
+				<reportElement x="10" y="10" width="120" height="25">
+				</reportElement>
+				
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="18" isBold="true"/>
+				</textElement>
+				
+				<text><![CDATA[Nº NFe]]></text>
+			</staticText>
+
+			<staticText>
+				<reportElement x="130" y="10" width="150" height="25"/>
+				
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="18" isBold="true"/>
+				</textElement>
+				
+				<text><![CDATA[Nº Doc. Saída]]></text>
+			</staticText>
+
+			<image isUsingCache="true">
+				<reportElement x="280" y="10" width="200" height="90"/>
+				
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+
+			<textField>
+				<reportElement x="10" y="35" width="120" height="50"/>
+				
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.nfe.numero}]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="130" y="35" width="150" height="50"/>
+				
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.numeroDocumentoFiscal}]]></textFieldExpression>
+			</textField>
+
+			<line>
+				<reportElement positionType="Float" x="10" y="101" width="480" height="2"/>
+				
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<!-- ^ Cabeçalho ^ -->
+
+			<!-- Corpo da Etiqueta -->
+			<!-- Remetente -->
+			<staticText>
+				<reportElement x="10" y="103" width="200" height="25"/>
+				
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				
+				<text><![CDATA[Remetente:]]></text>
+			</staticText>
+
+			<textField>
+				<reportElement x="15" y="128" width="400" height="20"/>
+				
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.empresaSaida.nomeRazaoSocial}]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="15" y="150" width="480" height="70"/>
+				
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.empresaSaida.endereco}.toUpperCase()+", "+$F{entidadeOrigem.empresaSaida.numero}.toUpperCase()]]>
+				</textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="15" y="170" width="480" height="20"/>
+				
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.empresaSaida.bairro}.toUpperCase()]]>
+				</textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="15" y="200" width="480" height="20"/>
+				
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA["CEP: "+ $F{entidadeOrigem.empresaSaida.cep}]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="15" y="220" width="200" height="20"/>
+				
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.empresaSaida.municipioIBGE.nome}+ " - " +$F{entidadeOrigem.empresaSaida.uf}]]>
+				</textFieldExpression>
+			</textField>
+
+			<line>
+				<reportElement positionType="Float" x="10" y="270" width="480" height="1"/>
+				
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<!-- ^ Remetente ^ -->
+
+			<!-- Destinatário -->
+			<staticText>
+				<reportElement x="14" y="271" width="200" height="25"/>
+				
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				
+				<text><![CDATA[Destinatário:]]></text>
+			</staticText>
+
+			<textField>
+				<reportElement x="15" y="296" width="412" height="20"/>
+				
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.parceiro.nome}]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="15" y="316" width="412" height="20">
+					<printWhenExpression><![CDATA[$F{entidadeOrigem.enderecoLocalEntrega.id}==null]]></printWhenExpression>
+				</reportElement>
+				
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.parceiro.endereco}+", "+$F{entidadeOrigem.parceiro.numero}+" "+($F{entidadeOrigem.parceiro.complemento}!=null?$F{entidadeOrigem.parceiro.complemento}:"")]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="15" y="316" width="412" height="20">
+					<printWhenExpression><![CDATA[$F{entidadeOrigem.enderecoLocalEntrega.id}!=null]]></printWhenExpression>
+				</reportElement>
+
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.enderecoLocalEntrega.endereco}+", "+$F{entidadeOrigem.enderecoLocalEntrega.numero}+" "+($F{entidadeOrigem.enderecoLocalEntrega.complemento}!=null?$F{entidadeOrigem.enderecoLocalEntrega.complemento}:"")]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="15" y="336" width="400" height="20">
+					<printWhenExpression><![CDATA[$F{entidadeOrigem.enderecoLocalEntrega.id}!=null]]></printWhenExpression>
+				</reportElement>
+				
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.enderecoLocalEntrega.municipioIBGE.nome}+"-"+$F{entidadeOrigem.enderecoLocalEntrega.uf}.toUpperCase()]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="15" y="336" width="400" height="20">
+					<printWhenExpression><![CDATA[$F{entidadeOrigem.enderecoLocalEntrega.id}==null]]></printWhenExpression>
+				</reportElement>
+				
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.parceiro.municipioIBGE.nome}+" - " + $F{entidadeOrigem.parceiro.uf}.toUpperCase()]]></textFieldExpression>
+			</textField>
+
+			<line>
+				<reportElement positionType="Float" x="10" y="356" width="480" height="1"/>
+				
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<!-- ^ Destinatário ^ -->
+
+			<!-- Transporte -->
+			<staticText>
+				<reportElement x="14" y="357" width="192" height="25"/>
+				
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				
+				<text><![CDATA[Transportadora:]]></text>
+			</staticText>
+
+			<textField>
+				<reportElement x="15" y="382" width="222" height="20">
+					<printWhenExpression><![CDATA[$F{entidadeOrigem.transportadora.id}!=null]]></printWhenExpression>
+				</reportElement>
+				
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.transportadora.nome}.toUpperCase()+"   "]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="220" y="357" width="166" height="25"/>
+				
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				
+				<text><![CDATA[Volume:]]></text>
+			</staticText>
+
+			<textField>
+				<reportElement x="220" y="382" width="166" height="20"/>
+				
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+
+				<textFieldExpression class="java.lang.String"><![CDATA["Volume: " + $F{volume}  + "/" + $F{volumeTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

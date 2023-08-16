@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="identificacao_produto" language="groovy" pageWidth="283" pageHeight="243" orientation="Landscape" columnWidth="283" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nome_empresa" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<field name="produto" class="java.lang.Object"/>
+	<field name="produto.descricao" class="java.lang.String"/>
+	<field name="entidadeOrigem.dataCriacao" class="java.lang.Object"/>
+	<field name="entidadeOrigem.dataCriacao.time" class="java.util.Date"/>
+	<field name="entidadeOrigem" class="java.lang.Object"/>
+	<field name="entidadeOrigem.lote" class="java.lang.String"/>
+	<field name="embalagem" class="java.lang.Object"/>
+	<field name="embalagem.qtdePrincipalEmbalagem" class="java.math.BigDecimal"/>
+	<field name="embalagem.qtdeLiquidaPrincipalEmbalagem" class="java.math.BigDecimal"/>
+	<field name="produto.prazoValidade" class="java.lang.Integer"/>
+	<field name="produto.unidadeMedidaPrazoValidade" class="java.lang.Integer"/>
+	<field name="entidadeOrigem.empresa" class="java.lang.Object"/>
+	<field name="entidadeOrigem.empresa.nomeRazaoSocial" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresa.endereco" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresa.telefone" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresa.cnpj" class="java.lang.String"/>
+	<field name="entidadeOrigem.empresa.inscricaoEstadual" class="java.lang.String"/>
+	<field name="produto.unidadeMedida.abreviatura" class="java.lang.String"/>
+	<field name="embalagem.embalagem" class="java.lang.Object"/>
+	<field name="embalagem.embalagem.unidadeMedida.abreviatura" class="java.lang.String"/>
+	<field name="embalagem.embalagem.unidadeMedida" class="java.lang.Object"/>
+	<field name="entidadeOrigem.nome" class="java.lang.String"/>
+	<field name="entidadeOrigem.itensPedido" class="java.util.List"/>
+	<field name="entidadeOrigem.produto.nome" class="java.lang.String"/>
+	<field name="entidadeOrigem.produto.descricao" class="java.lang.String"/>
+	<field name="entidadeOrigem.qtde" class="java.lang.String"/>
+	<field name="entidadeOrigem.infAdProd" class="java.lang.String"/>
+	<field name="entidadeOrigem.observacoes" class="java.lang.String"/>
+	<field name="qtdeOrdem" class="java.math.BigDecimal"/>
+	<field name="entidadeOrigem.dataEntrega" class="java.lang.Object"/>
+	<field name="entidadeOrigem.dataEntrega.time" class="java.util.Date"/>
+	<field name="codigo" class="java.lang.String"/>
+	<field name="usuario" class="java.lang.Object"/>
+	<field name="usuario.nome" class="java.lang.String"/>
+	<field name="dataCriacao" class="java.lang.Object"/>
+	<field name="dataCriacao.time" class="java.util.Date"/>
+	<field name="entidadeOrigem.produto" class="java.lang.Object"/>
+	<detail>
+		<band height="243" splitType="Stretch">
+			<!-- Header -->
+			<!--! ********************* -->
+			<image isUsingCache="true">
+				<reportElement x="4" y="2" width="87" height="30"/>
+				
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+
+			<textField>
+				<reportElement x="100" y="0" width="179" height="30"/>
+				
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.nome}]]></textFieldExpression>
+			</textField>
+
+			<line>
+				<reportElement x="0" y="32" width="279" height="1"/>
+			</line>
+
+			<line>
+				<reportElement x="0" y="33" width="279" height="1"/>
+			</line>
+
+			<line>
+				<reportElement x="0" y="34" width="279" height="1"/>
+			</line>
+			<!--! ********** FIM DO HEADER ********** -->
+
+
+			<!-- Corpo -->
+			<!--* Cliente/Pedido -->
+			<staticText>
+				<reportElement x="4" y="37" width="55" height="30"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+
+			<textField isBlankWhenNull="true">
+				<reportElement x="59" y="37" width="215" height="30">
+					<printWhenExpression><![CDATA[$F{entidadeOrigem.itensPedido}]]></printWhenExpression>
+				</reportElement>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.itensPedido}.get(0).getPedido().getCliente().getNomeRazaoSocial()]]></textFieldExpression>
+			</textField>
+
+			<line>
+				<reportElement x="4" y="69" width="275" height="1"/>
+			</line>
+			
+			<staticText>
+				<reportElement x="4" y="72" width="55" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				
+				<text><![CDATA[Pedido:]]></text>
+			</staticText>
+			
+			<textField isBlankWhenNull="true">
+				<reportElement x="59" y="72" width="215" height="15">
+					<printWhenExpression><![CDATA[$F{entidadeOrigem.itensPedido}]]></printWhenExpression>
+				</reportElement>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.itensPedido}.get(0).getPedido().getNome()]]></textFieldExpression>
+			</textField>
+			
+			<line>
+				<reportElement x="4" y="89" width="275" height="1"/>
+			</line>
+
+			<!--* Produto -->
+
+			<staticText>
+				<reportElement x="4" y="92" width="55" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				
+				<text><![CDATA[Código:]]></text>
+			</staticText>
+			
+			<textField isBlankWhenNull="true">
+				<reportElement x="59" y="92" width="215" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.produto.nome}]]></textFieldExpression>
+			</textField>
+
+			<line>
+				<reportElement x="4" y="109" width="275" height="1"/>
+			</line>
+			
+			<staticText>
+				<reportElement x="4" y="112" width="75" height="45"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				
+				<text><![CDATA[Descrição:]]></text>
+			</staticText>
+
+			<textField isBlankWhenNull="true">
+				<reportElement x="80" y="112" width="194" height="45">
+					<printWhenExpression><![CDATA[!$F{entidadeOrigem.infAdProd}]]></printWhenExpression>
+				</reportElement>
+				
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.produto.descricao}]]></textFieldExpression>
+			</textField>
+			
+			<textField isBlankWhenNull="true">
+				<reportElement x="80" y="112" width="194" height="45">
+					<printWhenExpression><![CDATA[$F{entidadeOrigem.infAdProd}]]></printWhenExpression>
+				</reportElement>
+				
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.produto.descricao}+" - "+$F{entidadeOrigem.infAdProd}]]></textFieldExpression>
+			</textField>
+
+			<line>
+				<reportElement x="4" y="159" width="275" height="1"/>
+			</line>
+			
+			<staticText>
+				<reportElement x="4" y="162" width="85" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				
+				<text><![CDATA[Quantidade:]]></text>
+			</staticText>
+			
+			<textField isBlankWhenNull="true">
+				<reportElement x="122" y="162" width="20" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.qtde}.substring(0, 3).replaceAll("\\.0", "").replaceAll("\\.","")]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="114" y="162" width="8" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				
+				<text><![CDATA[/]]></text>
+			</staticText>
+
+			<textField pattern="###0;-###0" isBlankWhenNull="true">
+				<reportElement x="89" y="162" width="20" height="15"/>
+				
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+
+			<textField isBlankWhenNull="true">
+				<reportElement x="147" y="162" width="30" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.produto}.getUnidadeMedida().getAbreviatura()]]></textFieldExpression>
+			</textField>
+
+			<line>
+				<reportElement x="4" y="179" width="275" height="1"/>
+			</line>
+
+			<staticText>
+				<reportElement x="4" y="181" width="85" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				
+				<text><![CDATA[Embalagem:]]></text>
+			</staticText>
+
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="181" width="184" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{entidadeOrigem.observacoes}]]></textFieldExpression>
+			</textField>
+
+			<line>
+				<reportElement x="4" y="198" width="275" height="1"/>
+			</line>
+
+			<!--* Outras Infos -->
+
+			<staticText>
+				<reportElement x="4" y="200" width="65" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				
+				<text><![CDATA[Entrega:]]></text>
+			</staticText>
+			
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="69" y="200" width="90" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{entidadeOrigem.dataEntrega.time}]]></textFieldExpression>
+			</textField>
+
+			<!-- Footer -->
+			<!--! ******************* -->
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="4" y="228" width="85" height="15"/>
+				
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{usuario.nome}.substring(0, $F{usuario.nome}.indexOf(" "))]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="89" y="228" width="6" height="15"/>
+				
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				
+				<text><![CDATA[-]]></text>
+			</staticText>
+
+			<textField pattern="dd/MM/yyyy HH:mm:ss" isBlankWhenNull="true">
+				<reportElement x="95" y="228" width="90" height="15"/>
+				
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{dataCriacao.time}]]></textFieldExpression>
+			</textField>
+			
+			<staticText>
+				<reportElement x="185" y="228" width="6" height="15"/>
+				
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				
+				<text><![CDATA[-]]></text>
+			</staticText>
+
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="191" y="228" width="70" height="15"/>
+				
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8" isStrikeThrough="false"/>
+				</textElement>
+				
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
